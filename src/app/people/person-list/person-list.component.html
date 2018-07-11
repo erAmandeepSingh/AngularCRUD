@@ -1,0 +1,34 @@
+<table class="table table-sm table-hover">
+  <tr>
+    
+    <th>
+      Name
+    </th>
+    <th>
+        Type
+      </th>
+      <th>
+          Birthday
+        </th>
+       
+          <th>
+              Telephone
+            </th>
+  </tr>
+  <tr *ngFor="let person of personService.personList">
+   
+    <td>{{person.FirstName}} - {{person.LastName}}</td>
+    <td>{{person.Type}}</td>
+    <td>{{person.Birthday | date}}</td>
+   
+    <td>{{person.Telephone}}</td>
+    <td>
+      <a class="btn" (click)="showForEdit(person)">
+        <i class="fa fa-pencil-square-o"></i>
+      </a>
+      <a class="btn text-danger" (click)="onDelete(person)">
+        <i class="fa fa-trash-o"></i>
+      </a>
+    </td>
+  </tr>
+</table>

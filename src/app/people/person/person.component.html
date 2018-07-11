@@ -1,0 +1,47 @@
+<form class="per-form" #personForm="ngForm" (ngSubmit)="onSubmit(personForm)">
+  <input type="hidden" name="ID" #ID="ngModel" [(ngModel)]="personService.selectedPerson.ID">
+<h5 style="text-align: left">Add/ Update Record</h5>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <input class="form-control" name="FirstName" #FirstName="ngModel" [(ngModel)]="personService.selectedPerson.FirstName"
+        placeholder="First Name" required>
+      <div class="validation-error" *ngIf="FirstName.invalid && FirstName.touched">This Field is Required.</div>
+    </div>
+    <div class="form-group col-md-6">
+      <input class="form-control" name="LastName" #LastName="ngModel" [(ngModel)]="personService.selectedPerson.LastName" placeholder="Last Name"
+        required>
+      <div class="validation-error" *ngIf="LastName.invalid && LastName.touched">This Field is Required.</div>
+    </div>
+  </div>
+  <div class="form-row">
+  <div class="form-group col-md-6">
+    <input class="form-control" name="Type" #Type="ngModel" [(ngModel)]="personService.selectedPerson.Type" placeholder="Type" required>
+    <div class="validation-error" *ngIf="Type.invalid && Type.touched">This Field is Required.</div>
+  </div>
+  
+    <div class="form-group col-md-6">
+      <input class="form-control" name="Birthday" #Birthday="ngModel" [(ngModel)]="personService.selectedPerson.Birthday" placeholder="Birthday">
+    </div>
+    </div>
+    <div class="form-row">
+    <div class="form-group col-md-6">
+      <input class="form-control"  name="Email"  #Email="ngModel" [(ngModel)]="personService.selectedPerson.Email" placeholder="Email">
+    </div>
+    
+    <div class="form-group col-md-6">
+      <input class="form-control" name="Telephone" #Telephone="ngModel" [(ngModel)]="personService.selectedPerson.Telephone" placeholder="Telephone">
+    </div>
+  </div>
+  <div class="form-row">
+   
+      <div class="form-group col-md-8">
+        <button [disabled]="!personForm.valid" type="submit" class="btn btn-lg btn-block btn-info">
+          <i class="fa fa-floppy-o"></i> Submit</button>
+      </div>
+      <div class="form-group col-md-4">
+        <button type="button" class="btn btn-lg btn-block btn-secondary" (click)="resetForm(personForm)">
+          <i class="fa fa-repeat"></i> Reset</button>
+      </div>
+    
+  </div>
+</form>
