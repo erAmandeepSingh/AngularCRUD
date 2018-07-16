@@ -23,7 +23,7 @@ export class PersonListComponent implements OnInit {
  
   onDelete(id: number) {
     if (confirm('Are you sure to delete this record ?') == true) {
-      this.personService.deletePerson(this.personService.selectedPerson.ID)
+      this.personService.deletePerson(id)
       .subscribe(x => {
         this.personService.getPersonList();
         this.toastr.warning("Deleted Successfully","Person Register");

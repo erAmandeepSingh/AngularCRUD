@@ -23,7 +23,7 @@ resetForm(form? : NgForm)
     ID: null,
     FirstName: '',
     LastName: '',
-    Type: '',
+    Type: 'Supplier',
     Birthday: null,
     Email: '',
     Telephone: ''  

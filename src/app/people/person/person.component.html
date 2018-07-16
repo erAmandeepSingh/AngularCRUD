@@ -3,33 +3,52 @@
 <h5 style="text-align: left">Add/ Update Record</h5>
   <div class="form-row">
     <div class="form-group col-md-6">
+      <label for="FirstName">First Name</label>
       <input class="form-control" name="FirstName" #FirstName="ngModel" [(ngModel)]="personService.selectedPerson.FirstName"
-        placeholder="First Name" required>
+         required>
       <div class="validation-error" *ngIf="FirstName.invalid && FirstName.touched">This Field is Required.</div>
     </div>
+
     <div class="form-group col-md-6">
-      <input class="form-control" name="LastName" #LastName="ngModel" [(ngModel)]="personService.selectedPerson.LastName" placeholder="Last Name"
+        <label for="LastName">Last Name</label>
+      <input class="form-control" name="LastName" #LastName="ngModel" [(ngModel)]="personService.selectedPerson.LastName" 
         required>
       <div class="validation-error" *ngIf="LastName.invalid && LastName.touched">This Field is Required.</div>
     </div>
   </div>
   <div class="form-row">
   <div class="form-group col-md-6">
-    <input class="form-control" name="Type" #Type="ngModel" [(ngModel)]="personService.selectedPerson.Type" placeholder="Type" required>
-    <div class="validation-error" *ngIf="Type.invalid && Type.touched">This Field is Required.</div>
+      <label for="Type">Category</label>
+      <select class="form-control" name="Type" #Type="ngModel" [(ngModel)]="personService.selectedPerson.Type" required>
+          <option value="Supplier" selected>Supplier</option>
+          <option value="Customer">Customer</option>
+      </select>
+
+
+    
+    
   </div>
   
     <div class="form-group col-md-6">
-      <input class="form-control" name="Birthday" #Birthday="ngModel" [(ngModel)]="personService.selectedPerson.Birthday" placeholder="Birthday">
+        <label for="Birthday">Birthday</label>
+      <input class="form-control" name="Birthday" #Birthday="ngModel" type="date" [(ngModel)]="personService.selectedPerson.Birthday">
+
     </div>
     </div>
     <div class="form-row">
     <div class="form-group col-md-6">
-      <input class="form-control"  name="Email"  #Email="ngModel" [(ngModel)]="personService.selectedPerson.Email" placeholder="Email">
+        <label for="Email">Email</label>
+      <input class="form-control"  name="Email"  #Email="ngModel" [(ngModel)]="personService.selectedPerson.Email" email required>
+      <div class="validation-error" *ngIf="Email.errors?.email">Email ID is not valid</div>
+      <div class="validation-error" *ngIf="Email.invalid && Email.touched">This Field is Required.</div>
     </div>
     
     <div class="form-group col-md-6">
-      <input class="form-control" name="Telephone" #Telephone="ngModel" [(ngModel)]="personService.selectedPerson.Telephone" placeholder="Telephone">
+        <label for="Telephone">Telephone</label>
+      <input class="form-control" name="Telephone" #Telephone="ngModel" placeholder="123-456-7890" type="tel"
+      pattern="[0-9]{2}-[0-9]{3}-[0-9]{3}-[0-9]{4}" [(ngModel)]="personService.selectedPerson.Telephone">
+      <div class="validation-error" *ngIf="Telephone.errors?.pattern">Enter digits in following pattern 00-000-000-0000</div>
+
     </div>
   </div>
   <div class="form-row">
